@@ -74,6 +74,9 @@ local plugins = {
   --   },
   -- },
   {
+    "nvim-neotest/nvim-nio"
+  },
+  {
     "nvim-neotest/neotest",
     event = "VeryLazy",
     config = function()
