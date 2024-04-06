@@ -1,3 +1,6 @@
 # Example_config
 
-This can be used as an example custom config for NvChad. Do check the https://github.com/NvChad/nvcommunity
+This is nvim config example.
+Need to install:
+1)Rigrep:
+https://github.com/BurntSushi/ripgrep
