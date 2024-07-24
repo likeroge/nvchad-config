@@ -1,0 +1,1 @@
+ cp -r nvchad-config/* .
