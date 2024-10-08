@@ -41,20 +41,20 @@ for _, lsp in ipairs(servers) do
   }
   lspconfig.prismals.setup {}
 
-  lspconfig.rust_analyzer.setup {
-    on_attach = on_attach,
-    capabilities = capabilities,
-    root_dir = util.root_pattern "Cargo.toml",
-    -- on_init = on_init,
-    settings = {
-      ["rust-analyzer"] = {
-        cargo = {
-          allFeatures = true,
-        },
-        checkOnSave = {
-          command = "clippy",
-        },
-      },
-    },
-  }
+  -- lspconfig.rust_analyzer.setup {
+  --   on_attach = on_attach,
+  --   capabilities = capabilities,
+  --   root_dir = util.root_pattern "Cargo.toml",
+  --   -- on_init = on_init,
+  --   settings = {
+  --     ["rust-analyzer"] = {
+  --       cargo = {
+  --         allFeatures = true,
+  --       },
+  --       checkOnSave = {
+  --         command = "clippy",
+  --       },
+  --     },
+  --   },
+  -- }
 end
