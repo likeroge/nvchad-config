@@ -1,13 +1,15 @@
-local configs = require("nvchad.configs.lspconfig")
+local configs = require "nvchad.configs.lspconfig"
 
 local on_attach = configs.on_attach
 local on_init = configs.on_init
 local capabilities = configs.capabilities
 
+local util = require "lspconfig/util"
+
 local lspconfig = require "lspconfig"
 
 -- if you just want default config for the servers then put them in a table
-local servers = { "html", "cssls", "tsserver", "clangd", "gopls", "gradle_ls" }
+local servers = { "html", "cssls", "clangd", "gopls", "gradle_ls", "rust_analyzer" }
 
 local function organize_imports()
   local params = {
@@ -33,9 +35,26 @@ for _, lsp in ipairs(servers) do
         usePlaceholders = true,
         analyses = {
           unusedparams = true,
-        }
-      }
-    }
+        },
+      },
+    },
   }
   lspconfig.prismals.setup {}
+
+  lspconfig.rust_analyzer.setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+    root_dir = util.root_pattern "Cargo.toml",
+    -- on_init = on_init,
+    settings = {
+      ["rust-analyzer"] = {
+        cargo = {
+          allFeatures = true,
+        },
+        checkOnSave = {
+          command = "clippy",
+        },
+      },
+    },
+  }
 end
