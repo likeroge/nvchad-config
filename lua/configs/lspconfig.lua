@@ -9,7 +9,7 @@ local util = require "lspconfig/util"
 local lspconfig = require "lspconfig"
 
 -- if you just want default config for the servers then put them in a table
-local servers = { "html", "cssls", "clangd", "gopls", "gradle_ls", "rust_analyzer" }
+local servers = { "html", "cssls", "clangd", "gopls", "gradle_ls", "rust_analyzer", "prismals", "ts_ls" }
 
 local function organize_imports()
   local params = {
@@ -40,6 +40,7 @@ for _, lsp in ipairs(servers) do
     },
   }
   lspconfig.prismals.setup {}
+  lspconfig.ts_ls.setup {}
 
   -- lspconfig.rust_analyzer.setup {
   --   on_attach = on_attach,
